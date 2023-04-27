@@ -1,0 +1,55 @@
+<section class="py-5 bg-light" id="portfolio">
+  <div class="container">
+    <h2 class="mb-0">Mon portfolio</h2>
+    <h3 class="fw-light fs-5">Projets personnels et professionels</h3>
+    <div class="row gy-4 gy-md-0 mt-4">
+      <ng-container *ngFor="let project of projects|async">
+        <ng-container *ngTemplateOutlet="projectItem; context:{$implicit: project}"/>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<ng-template #projectItem let-project>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="card">
+      <img [ngSrc]="'assets/images/' + project.code + '/' + project.picture" fill class="card-img-top position-relative"
+           [alt]="project.picture"/>
+      <div class="card-body">
+        <h5 class="card-title">{{ project.name }}</h5>
+        <p class="card-text">{{ project.description }}</p>
+        <div class="d-flex justify-content-between">
+          <a class="btn btn-primary" (click)="showProject(currentProjectOffcanvas)"
+             [attr.aria-controls]="project.name">En savoir plus</a>
+          <a *ngIf="project.github" class="btn btn-secondary" ngbTooltip="Voir Sur GitHub"
+             [href]="project.github" target="_blank">
+            <app-icon name="bi:github"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #currentProjectOffcanvas let-offcanvas>
+    <ng-container *ngTemplateOutlet="projectOffcanvas; context:{$implicit: project, 'offcanvas': offcanvas}"/>
+  </ng-template>
+</ng-template>
+
+<ng-template #projectOffcanvas let-project let-offcanvas="offcanvas">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">{{ project.name }}</h5>
+    <button type="button" class="btn-close text-reset" (click)="offcanvas.dismiss()"
+            aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ngb-carousel [showNavigationArrows]="true" [animation]="true" [interval]="10000" [pauseOnHover]="true"
+                  [wrap]="true"
+                  [pauseOnFocus]="true" [keyboard]="true">
+      <ng-container *ngFor="let url of project.previews; index as i">
+        <ng-container *ngbSlide>
+          <img [ngSrc]="'/assets/images/'+project.code+'/'+url" fill class="d-block position-relative"
+               [alt]="'Image slide '+(i+1)"/>
+        </ng-container>
+      </ng-container>
+    </ngb-carousel>
+  </div>
+</ng-template>

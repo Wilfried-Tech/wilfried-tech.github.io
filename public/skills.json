@@ -1,0 +1,99 @@
+[
+  {
+    "name": "development",
+    "items": [
+      {
+        "name": "html5",
+        "icon": "devicon:html5",
+        "strength": 95
+      },
+      {
+        "name": "css3",
+        "icon": "devicon:css3",
+        "strength": 90
+      },
+      {
+        "name": "bootstrap",
+        "icon": "devicon:bootstrap",
+        "strength": 45
+      },
+      {
+        "name": "javascript",
+        "icon": "devicon:javascript",
+        "strength": 80,
+        "primary": true
+      },
+      {
+        "name": "php",
+        "icon": "devicon:php",
+        "strength": 75,
+        "primary": true
+      },
+      {
+        "name": "python",
+        "icon": "devicon:python",
+        "strength": 80,
+        "primary": true
+      },
+      {
+        "name": "java",
+        "icon": "devicon:java",
+        "strength": 75,
+        "primary": true
+      },
+      {
+        "name": "C",
+        "icon": "devicon:c",
+        "strength": 40
+      },
+      {
+        "name": "c++",
+        "icon": "devicon:cplusplus",
+        "strength": 35
+      },
+      {
+        "name": "sass",
+        "icon": "devicon:sass",
+        "strength": 40
+      },
+      {
+        "name": "django",
+        "icon": "logos:django",
+        "strength": 50,
+        "primary": true
+      },
+      {
+        "name": "django rest framework",
+        "icon": "devicon:djangorest",
+        "strength": 40
+      },
+      {
+        "name": "flutter",
+        "icon": "devicon:flutter",
+        "strength": 45,
+        "primary": true
+      },
+      {
+        "name": "kotlin",
+        "icon": "devicon:kotlin",
+        "strength": 50
+      },
+      {
+        "name": "Qt",
+        "icon": "devicon:qt",
+        "strength": 60
+      }
+    ]
+  },
+  {
+    "name": "design",
+    "items": [
+      {
+        "name": "PhotoShop",
+        "icon": "devicon:photoshop",
+        "strength": 50,
+        "primary": true
+      }
+    ]
+  }
+]

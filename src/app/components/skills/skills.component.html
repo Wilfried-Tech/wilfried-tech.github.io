@@ -1,0 +1,67 @@
+<ng-template #skillProgress let-skill>
+  <div class="mb-3 p-3 bg-white rounded-3 shadow-sm">
+    <div class="row align-items-center">
+      <div class="col-5 col-sm-4 col-lg-5 col-xl-4 p-0">
+        <div class="d-flex align-content-center">
+          <app-icon [name]="skill.icon" size="25"/>
+          <span class="fw-bold ms-1 ps-1 text-uppercase small text-truncate">{{ skill.name }}</span>
+        </div>
+      </div>
+      <div class="col">
+        <ngb-progressbar [ngbTooltip]="skill.strength + '%'" [showValue]="true" [value]="skill.strength"
+                         class="fw-bold"/>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #skillsOffcanvas let-section let-offcanvas="offcanvas">
+  <div class="container">
+    <div class="offcanvas-header">
+      <div class="offcanvas-title h1">Mon Expertise</div>
+      <button (click)="offcanvas.dismiss()" aria-label="Close" class="btn-close text-dark" type="button"></button>
+    </div>
+  </div>
+  <div class="offcanvas-body">
+    <div class="container">
+      <div class="row">
+        <ng-container *ngFor="let skill of section.items">
+          <div class="col-12 col-md-6 col-lg-4">
+            <ng-container *ngTemplateOutlet="skillProgress; context:{$implicit: skill}"/>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<section class="py-5 bg-light" id="expertise">
+  <div class="container">
+    <h2 class="mb-0">Mon Expertise</h2>
+    <h3 class="fw-light fs-5 mt-1">Développement Fullstack, Web et Design </h3>
+
+    <ng-container *ngFor="let section of skills|async; index as $i">
+      <div class="row align-items-center gy-4 mt-4">
+        <div class="col-12 col-md-5 d-flex align-items-center">
+          <img alt="" class="w-100 rounded-3 shadow position-relative" fill ngSrc="assets/images/{{section.name}}.jpg">
+        </div>
+        <div class="col-12 col-md-7" [ngClass]="{'order-md-first': $i%2==0}"><!-- is last if $i is odd -->
+          <ng-container *ngFor="let skill of section.items.filter(isPrimary)">
+            <ng-container *ngTemplateOutlet="skillProgress; context:{$implicit: skill}"/>
+          </ng-container>
+          @if (section.items.length > 5) {
+            <ng-template #currentSkillsOffcanvas let-offcanvas>
+              <ng-container *ngTemplateOutlet="skillsOffcanvas; context:{$implicit: section, 'offcanvas': offcanvas}"/>
+            </ng-template>
+            <div class="p-3 text-center">
+              <button class="btn btn-outline-primary fw-bold" (click)="showMoreSkills(currentSkillsOffcanvas)">
+                Voir Plus . . .
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</section>

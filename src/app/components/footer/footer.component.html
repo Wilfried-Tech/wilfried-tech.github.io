@@ -1,0 +1,88 @@
+<footer class="border-top text-center">
+  <div class="container py-4">
+    <div class="row gy-4 align-items-center">
+      <div class="col-12 col-md-3">
+        <a class="navbar-brand text-dark text-uppercase fw-bold" href="#presentation">
+          <span class="bg-primary bg-gradient p-1 rounded-3 text-light fw-bold">NYANDJOU</span> WILFRIED
+        </a>
+      </div>
+      <div class="col-12 col-md-4 text-md-center">
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a class="text-decoration-none text-dark" (click)="showLegalMentions(legalMentions)">Mentions légales</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-5 text-md-end">
+        <ul class="list-inline mb-0 d-flex justify-content-around">
+          <li class="list-inline-item">
+            <a class="text-decoration-none text-secondary bg-gradient" data-bs-toggle="tooltip"
+               href="https://www.linkedin.com/mwlite/in/nyandjou-wilfried-larry" target="_blank"
+               title="LinkedIn">
+              <app-icon name="logos:linkedin-icon" size="25"/>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="text-decoration-none text-secondary bg-gradient" data-bs-toggle="tooltip"
+               href="https://github.com/Wilfried-Tech" target="_blank" title="Github">
+              <app-icon name="logos:github-icon" size="25"/>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="text-decoration-none text-secondary bg-gradient" data-bs-toggle="tooltip"
+               href="mailto:wilfriedtech.dev@gmail.com" target="_blank" title="Gmail">
+              <app-icon name="logos:google-gmail" size="25"/>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="text-decoration-none text-secondary bg-gradient" data-bs-toggle="tooltip"
+               href="https://www.facebook.com/wilfriedlarry.nyandjou" target="_blank" title="Facebook">
+              <app-icon name="logos:facebook" size="25"/>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="text-decoration-none text-secondary bg-gradient" data-bs-toggle="tooltip" href=""
+               target="_blank" title="Instagram">
+              <app-icon name="skill-icons:instagram" size="25"/>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="text-decoration-none text-secondary bg-gradient" data-bs-toggle="tooltip"
+               href="whatsapp://send?phone=+237657933001" target="_blank" title="Whatsapp">
+              <app-icon name="logos:whatsapp-icon" size="25"/>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<ng-template #legalMentions let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Mentions Légales</h5>
+      <button (click)="modal.dismiss()" aria-label="Close" class="btn-close" type="button"></button>
+    </div>
+    <div class="modal-body" style="text-align:justify">
+      <p>
+        Droit d'auteur et confidentialité :
+        Tous les éléments présents sur ce site (textes, images, vidéos, etc.) sont la propriété
+        exclusive de leur auteur et sont protégés par les lois relatives au droit d'auteur. Toute
+        reproduction, représentation, modification ou distribution de ces éléments sans autorisation
+        préalable est strictement interdite. </p>
+      <p>
+        Les informations collectées sur ce site sont destinées à
+        l'usage exclusif de l'auteur et ne seront en aucun cas communiquées à des tiers. Conformément à
+        la loi Informatique et Libertés du 6 janvier 1978, vous disposez d'un droit d'accès, de
+        rectification et de suppression des données vous concernant. Pour exercer ce droit, veuillez
+        contacter l'auteur par email à <a class="text-decoration-none fw-bold text-primary"
+                                          href="mailto:wilfriedtech.dev@gmail.com">wilfriedtech.dev&#64;gmail.com</a>.
+      </p>
+      <p>
+        Inspirée de la realisation du cours bootstrap sur openclassrooms
+      </p>
+    </div>
+  </div>
+</ng-template>

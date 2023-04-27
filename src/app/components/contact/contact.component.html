@@ -1,0 +1,51 @@
+<section class="py-5 bg-light" id="contact">
+  <div class="container">
+    <h2 class="mb-0">Un projet de Développement ?</h2>
+    <h3 class="fw-light fs-5">Allons en discuter autour d'un café</h3>
+
+    <div class="row gy-4 mt-4">
+      <div class="col-12 col-md-5 align-content-center">
+        <img [style.height]="150" alt="Image d'une tasse de café" class="position-relative rounded-3 shadow"
+             ngSrc="/assets/images/grab-a-coffee.jpg" fill priority>
+      </div>
+      <div class="col-12 offset-md-1 col-md-6">
+
+        <!-- Formulaire -->
+        <form class="row" [formGroup]="contactForm" (ngSubmit)="sendMessage()">
+          <div class="col-6 my-2">
+            <label class="form-label" for="firstname">Prénom</label>
+            <input formControlName="firstname" class="form-control" id="firstname" name="firstname" required
+                   type="text">
+          </div>
+          <div class="col-6 my-2">
+            <label class="form-label" for="name">Nom</label>
+            <input formControlName="name" class="form-control" id="name" name="name" required type="text">
+          </div>
+          <div class="col-12 my-2">
+            <label class="form-label" for="email">Email address</label>
+            <input formControlName="email" class="form-control" id="email" name="email" required type="email">
+          </div>
+          <div class="col-12 my-2">
+            <label class="form-label" for="message">Message</label>
+            <textarea formControlName="message"
+                      class="form-control"
+                      id="message"
+                      name="message"
+                      required
+                      rows="3"></textarea>
+          </div>
+          <div *ngIf="result" class="col-12 my-2">
+            <ngb-alert [type]="result.ok? 'success':'danger'" [animation]="true" [dismissible]="true"
+                       (closed)="result = undefined">
+              {{ responseText }}
+            </ngb-alert>
+          </div>
+
+          <div class="col-12 my-2">
+            <button [disabled]="contactForm.invalid" class="btn btn-primary w-100" type="submit">Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
