@@ -39,3 +39,18 @@ function createSeeMoreExpertise(id, items) {
 <button aria-label="Close" class="btn-close text-dark" data-bs-dismiss="offcanvas" data-bs-target="${id}" type="button"></button></div></div>
 <div class="offcanvas-body"><div class="container"><div class="row">${body}</div></div></div></div>`;
 }
+
+/**
+ * @param {"error"|"warning","success"} type
+ * @param {HTMLElement} node
+ * @param {String} message
+ */
+function showAlert(type, node, message) {
+    const _type = type === "error" ? ["danger", "exclamation-circle"] : (type === "warning" ? ["warning", "exclamation-triangle"] : ["success", "check-circle"])
+    node.innerHTML = `
+<div class="alert alert-${_type[0]} alert-dismissible fade show d-flex align-items-center" role="alert">
+    <i class="bi bi-${_type[1]}"></i>
+    <div class="ms-1">${message}<div/>
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+</div>`
+}
