@@ -49,3 +49,20 @@
     opacity: 0.5;
     margin: 2px;
 }
+
+
+
+
+.carousel-item img {
+  object-fit: cover;
+  
+}
+
+.carousel-item p {
+  display: none;
+}
+
+.carousel-item h5{
+  color: var(--bs-primary);
+  font-size: 25pt;
+}
