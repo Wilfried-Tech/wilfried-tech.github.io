@@ -13,7 +13,13 @@ const expertise = [
                 bsIconClass: "fab fa-css3",
                 value: 90,
                 primary: true
-            }, {
+            },
+            {
+              name: "bootstrap",
+              bsIconClass: "fab fa-bootstrap",
+              value: 45
+            },
+            {
                 name: "js",
                 bsIconClass: "fab fa-js",
                 value: 80,
