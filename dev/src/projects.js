@@ -1,0 +1,18 @@
+export default [
+    {
+        name: "Nombre En Lettres",
+        projectCode: "toletters",
+        picture: "ic_launcher-playstore.png",
+        description: "Application mobile pour enfants permettant de convertir un nombre en lettres",
+        github: "//github.com/Wilfried-Tech/NumberToLetters",
+        previews: [
+            "Screenshot_20231021-185141.png",
+            "Screenshot_20231021-185242.png",
+            "Screenshot_20231021-185256.png",
+            "Screenshot_20231021-185313.png",
+            "Screenshot_20231021-185327.png",
+            "Screenshot_20231021-185510.png",
+            "Screenshot_20231021-185531.png"
+        ]
+    }
+];
