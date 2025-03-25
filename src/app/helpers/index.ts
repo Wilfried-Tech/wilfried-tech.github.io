@@ -13,8 +13,8 @@ export type SkillSection = {
 export type Project = {
   name: string,
   code: string,
-  picture: string,
+  picture?: string,
   description: string,
   github?: string,
-  previews: string[]
+  previews?: string[]
 }

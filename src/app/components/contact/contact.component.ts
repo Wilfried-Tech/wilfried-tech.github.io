@@ -19,7 +19,7 @@ import {NgbAlert} from "@ng-bootstrap/ng-bootstrap";
 })
 export class ContactComponent implements OnInit {
   contactForm!: FormGroup
-  result?: HttpResponse<Object>
+  result?: HttpResponse<{message?: string}>
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
   }
@@ -41,7 +41,7 @@ export class ContactComponent implements OnInit {
       subject: name.trim() + " - Contact On Portfolio",
       message: `\nNom: ${name.trim()}\nPrenom: ${firstname.trim()}\nEmail: ${email.trim()}\n\n\n${message.trim()}`
     }
-    this.http.post('https://codingmailer.onrender.com/send-email', data, {
+    this.http.post<{message?: string}>('https://codingmailer.onrender.com/send-email', data, {
       observe: "response"
     }).subscribe({
       error: err => this.result = err,
@@ -53,7 +53,7 @@ export class ContactComponent implements OnInit {
   }
 
   get responseText() {
-    return this.result?.statusText
+    return this.result?.body?.message
   }
 }
 

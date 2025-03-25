@@ -13,18 +13,22 @@
 <ng-template #projectItem let-project>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <div class="card">
-      <img [ngSrc]="'assets/images/' + project.code + '/' + project.picture" fill class="card-img-top position-relative"
+      <img *ngIf="project.picture" [ngSrc]="'assets/images/' + project.code + '/' + project.picture" fill
+           class="card-img-top position-relative"
            [alt]="project.picture"/>
       <div class="card-body">
         <h5 class="card-title">{{ project.name }}</h5>
-        <p class="card-text">{{ project.description }}</p>
-        <div class="d-flex justify-content-between">
-          <a class="btn btn-primary" (click)="showProject(currentProjectOffcanvas)"
+        <p *ngIf="project.description" class="card-text">{{ project.description }}</p>
+        <div class="clearfix">
+          <a *ngIf="project.previews&&project.previews.length!=0" class="float-start btn btn-primary"
+             (click)="showProject(currentProjectOffcanvas)"
              [attr.aria-controls]="project.name">En savoir plus</a>
-          <a *ngIf="project.github" class="btn btn-secondary" ngbTooltip="Voir Sur GitHub"
-             [href]="project.github" target="_blank">
-            <app-icon name="bi:github"/>
-          </a>
+          <div class="float-end">
+            <a *ngIf="project.github" class="btn btn-secondary float-end" ngbTooltip="Voir Sur GitHub"
+               [href]="project.github" target="_blank">
+              <app-icon name="bi:github"/>
+            </a>
+          </div>
         </div>
       </div>
     </div>
